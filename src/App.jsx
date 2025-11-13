@@ -10,13 +10,37 @@ function App() {
   useEffect(() => {
     fetch("https://lanciweb.github.io/demo/api/actors/")
       .then(Response => Response.json())
-      .then(data => setActors(data))
+      .then(data => {
+
+        setActors(data);
+      })
   }, []) // eseguo solo al primo rendering 
+  console.log(actors);
 
 
   return (
     <>
 
+      <div className='container'>
+        <h1>Attori</h1>
+        <div>
+          {actors.map((actor, index) => (
+            <div key={index} className='card mb-3'>
+              <div className='card-text'>Name: {actor.name}</div>
+              <div className="card-text">Birth Year: {actor.birth_year}</div>
+              <div className="card-text">Nationality: {actor.nationality}</div>
+              <div className="card-text">Biography: {actor.biography}</div>
+              <img
+                src={actor.image}
+                alt={actor.name}
+                style={{ maxWidth: '200px' }}
+              />
+              <div className='card-text'>Awards: {actor.awards}</div>
+
+            </div>
+          ))}
+        </div>
+      </div>
     </>
   )
 }
