@@ -3,10 +3,14 @@ import './App.css'
 
 function App() {
 
+  // stato array actors
+  const [actors, setActors] = useState([]) // inizializzo array vuoto
+
   // chiamata API
   useEffect(() => {
     fetch("https://lanciweb.github.io/demo/api/actors/")
       .then(Response => Response.json())
+      .then(data => setActors(data))
   }, []) // eseguo solo al primo rendering 
 
 
