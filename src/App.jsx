@@ -1,7 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
+
+  // chiamata API
+  useEffect(() => {
+    fetch("https://lanciweb.github.io/demo/api/actors/")
+      .then(Response => Response.json())
+  }, []) // eseguo solo al primo rendering 
+
 
   return (
     <>
@@ -11,8 +18,6 @@ function App() {
 }
 
 export default App
-
-
 
 /* MILESTONE 1
 Al caricamento dell'applicazione, recuperiamo la lista degli attori e delle attrici dalle API e stampiamoli in console.
