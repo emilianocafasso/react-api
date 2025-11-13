@@ -22,20 +22,29 @@ function App() {
     <>
 
       <div className='container'>
-        <h1>Attori</h1>
-        <div>
+        <h1 className='text-center my-3'>My favourite Actors</h1>
+
+        <div className='row'>
           {actors.map((actor, index) => (
-            <div key={index} className='card mb-3'>
-              <div className='card-text'>Name: {actor.name}</div>
-              <div className="card-text">Birth Year: {actor.birth_year}</div>
-              <div className="card-text">Nationality: {actor.nationality}</div>
-              <div className="card-text">Biography: {actor.biography}</div>
-              <img
-                src={actor.image}
-                alt={actor.name}
-                style={{ maxWidth: '200px' }}
-              />
-              <div className='card-text'>Awards: {actor.awards}</div>
+            <div key={index} className='actor-card mb-3 mx-2'>
+
+              <div className='row pt-3'>
+                <div className="col-4">
+                  <img
+                    src={actor.image}
+                    alt={actor.name}
+                  />
+                </div>
+                <div className="col-8">
+                  <p className='title'>{actor.name}</p>
+                  <p className='info'>Birth Year: {actor.birth_year}</p>
+                  <p className='info'>Nationality: {actor.nationality}</p>
+                  <p className='bio'>Biography: {actor.biography}</p>
+                  <div className='info fst-italic'>Awards: {actor.awards}</div>
+                </div>
+              </div>
+
+
 
             </div>
           ))}
